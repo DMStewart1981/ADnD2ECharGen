@@ -24,6 +24,78 @@ int main() {
     std::cout << "WIS = " << Generated.Wis << std::endl;
     std::cout << "CHA = " << Generated.Cha << std::endl;
 
+    Generated.CheckFighter();
+    Generated.CheckPaladin();
+    Generated.CheckRanger();
+    Generated.CheckMage();
+    Generated.CheckCleric();
+    Generated.CheckDruid();
+    Generated.CheckThief();
+    Generated.CheckBard();
+
+    //Code inserted for testing
+
+/*  std::cout << "Is Fighter Available = " << Generated.IsFighterAvailable << std::endl;
+    std::cout << "Is Paladin Available = " << Generated.IsPaladinAvailable << std::endl;
+    std::cout << "Is Ranger Available = " << Generated.IsRangerAvailable << std::endl;
+    std::cout << "Is Mage Available = " << Generated.IsMageAvailable << std::endl;
+    std::cout << "Is Cleric Available = " << Generated.IsClericAvailable << std::endl;
+    std::cout << "Is Druid Available = " << Generated.IsDruidAvailable << std::endl;
+    std::cout << "Is Thief Available = " << Generated.IsThiefAvailable << std::endl;
+    std::cout << "Is Bard Available = " << Generated.IsBardAvailable << std::endl;  */
+
+
+
+    std::cout << "Available Classes:" << std::endl;
+
+    if (Generated.IsFighterAvailable == true) {
+        std::cout << "Fighter" << std::endl;
+    };
+
+    if (Generated.IsPaladinAvailable == true) {
+        std::cout << "Paladin" << std::endl;
+    };
+
+    if (Generated.IsRangerAvailable == true) {
+        std::cout << "Ranger" << std::endl;
+    };
+
+    if (Generated.IsMageAvailable == true) {
+        std::cout << "Mage" << std::endl;
+    };
+
+    if (Generated.IsClericAvailable == true) {
+        std::cout << "Cleric" << std::endl;
+    };
+
+    if (Generated.IsDruidAvailable == true) {
+        std::cout << "Druid" << std::endl;
+    };
+
+    if (Generated.IsThiefAvailable == true) {
+        std::cout << "Thief" << std::endl;
+    };
+
+    if (Generated.IsBardAvailable == true) {
+        std::cout << "Bard" << std::endl;
+    };
+
+    std::cout << "Choose from available Classes" << std::endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
