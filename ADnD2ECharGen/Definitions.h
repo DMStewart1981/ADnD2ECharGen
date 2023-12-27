@@ -11,7 +11,7 @@ class Character
 		Character() :CharacterName(), Str(0), Dex(0), Con(0), Int(0), Wis(0), Cha(0), ClassName(), THAC0(0), SavePPDM(0),
 			SaveRSW(0), SavePetPoly(0), SaveBreath(0), SaveSpell(0), ExceptionalStrength(0), IsFighterAvailable(false),
 			IsPaladinAvailable(false), IsRangerAvailable(false), IsMageAvailable(false), IsClericAvailable(false),
-			IsDruidAvailable(false), IsThiefAvailable(false), IsBardAvailable(false) {};
+			IsDruidAvailable(false), IsThiefAvailable(false), IsBardAvailable(false), IsInputValid(false), Input() {};
 		std::string CharacterName;
 		int Str;
 		int Dex;
@@ -30,6 +30,7 @@ class Character
 		int SaveBreath;
 		int SaveSpell;
 		int ExceptionalStrength;
+		//Defining functions and internal variables needed for Character Generation
 		void RollStats() {
 			Str = RollVector();
 			Dex = RollVector();
@@ -38,6 +39,7 @@ class Character
 			Wis = RollVector();
 			Cha = RollVector();
 			};
+		//Variables to set available Character Classes
 		bool IsFighterAvailable;
 		bool IsPaladinAvailable;
 		bool IsRangerAvailable;
@@ -46,6 +48,7 @@ class Character
 		bool IsDruidAvailable;
 		bool IsThiefAvailable;
 		bool IsBardAvailable;
+		//Functions to check attributes against Class requirements
 		void CheckFighter() {
 			if (Str >= 9) {
 				IsFighterAvailable = true;
@@ -107,5 +110,8 @@ class Character
 			}
 			else IsBardAvailable = false;
 		};
+		//Setting up variables for user to choose an available Character Class and to error-check that input
+		bool IsInputValid;
+		std::string Input;
 	};
 #endif

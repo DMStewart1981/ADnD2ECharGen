@@ -50,43 +50,119 @@ int main() {
 
     if (Generated.IsFighterAvailable == true) {
         std::cout << "Fighter" << std::endl;
-    };
+    }
 
     if (Generated.IsPaladinAvailable == true) {
         std::cout << "Paladin" << std::endl;
-    };
+    }
 
     if (Generated.IsRangerAvailable == true) {
         std::cout << "Ranger" << std::endl;
-    };
+    }
 
     if (Generated.IsMageAvailable == true) {
         std::cout << "Mage" << std::endl;
-    };
+    }
 
     if (Generated.IsClericAvailable == true) {
         std::cout << "Cleric" << std::endl;
-    };
+    }
 
     if (Generated.IsDruidAvailable == true) {
         std::cout << "Druid" << std::endl;
-    };
+    }
 
     if (Generated.IsThiefAvailable == true) {
         std::cout << "Thief" << std::endl;
-    };
+    }
 
     if (Generated.IsBardAvailable == true) {
         std::cout << "Bard" << std::endl;
-    };
+    }
 
     std::cout << "Choose from available Classes" << std::endl;
 
+    do {
 
+        std::cin >> Generated.Input;
 
+        /* Testing code
+        std::cout << "Input = " << Generated.Input << std::endl; */
 
+        if (Generated.IsFighterAvailable == true && Generated.Input == "Fighter") {
+            Generated.IsInputValid = true;
+        }
 
+        else if (Generated.IsRangerAvailable == true && Generated.Input == "Ranger") {
+            Generated.IsInputValid = true;
+        }
 
+        else if (Generated.IsPaladinAvailable == true && Generated.Input == "Paladin") {
+            Generated.IsInputValid = true;
+        }
+
+        else if (Generated.IsMageAvailable == true && Generated.Input == "Mage") {
+            Generated.IsInputValid = true;
+        }
+
+        else if (Generated.IsClericAvailable == true && Generated.Input == "Cleric") {
+            Generated.IsInputValid = true;
+        }
+
+        else if (Generated.IsDruidAvailable == true && Generated.Input == "Druid") {
+            Generated.IsInputValid = true;
+        }
+
+        else if (Generated.IsThiefAvailable == true && Generated.Input == "Thief") {
+            Generated.IsInputValid = true;
+        }
+
+        else if (Generated.IsBardAvailable == true && Generated.Input == "Bard") {
+            Generated.IsInputValid = true;
+        }
+
+        else {
+            std::cout << "Please choose an available Character Class.  Available Character Classes are:" << std::endl;
+            std::cout << "Available Classes:" << std::endl;
+
+            if (Generated.IsFighterAvailable == true) {
+                std::cout << "Fighter" << std::endl;
+            }
+
+            if (Generated.IsPaladinAvailable == true) {
+                std::cout << "Paladin" << std::endl;
+            }
+
+            if (Generated.IsRangerAvailable == true) {
+                std::cout << "Ranger" << std::endl;
+            }
+
+            if (Generated.IsMageAvailable == true) {
+                std::cout << "Mage" << std::endl;
+            }
+
+            if (Generated.IsClericAvailable == true) {
+                std::cout << "Cleric" << std::endl;
+            }
+
+            if (Generated.IsDruidAvailable == true) {
+                std::cout << "Druid" << std::endl;
+            }
+
+            if (Generated.IsThiefAvailable == true) {
+                std::cout << "Thief" << std::endl;
+            }
+
+            if (Generated.IsBardAvailable == true) {
+                std::cout << "Bard" << std::endl;
+            }
+
+        }
+
+    }
+    while (Generated.IsInputValid == false);
+
+    Generated.ClassName = Generated.Input;
 
 
 
@@ -101,14 +177,3 @@ int main() {
 
     return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
