@@ -59,7 +59,7 @@ class Character
 			}
 		};
 		void CheckPaladin() {
-			if (Str >= 12 && Con >= 9 && Wis >= 13 && Cha >= 17) {
+			if ((Str >= 12) && (Con >= 9) && (Wis >= 13) && (Cha >= 17)) {
 				IsPaladinAvailable = true;
 			}
 			else {
@@ -67,7 +67,7 @@ class Character
 			}
 		};
 		void CheckRanger() {
-			if (Str >= 13 && Dex >= 13 && Con >= 14 && Wis >= 14) {
+			if ((Str >= 13) && (Dex >= 13) && (Con >= 14) && (Wis >= 14)) {
 				IsRangerAvailable = true;
 			}
 			else {
@@ -91,7 +91,7 @@ class Character
 			}
 		};
 		void CheckDruid() {
-			if (Wis >= 12 && Cha >= 15) {
+			if ((Wis >= 12) && (Cha >= 15)) {
 				IsDruidAvailable = true;
 			}
 			else {
@@ -105,7 +105,7 @@ class Character
 			else IsThiefAvailable = false;
 		};
 		void CheckBard() {
-			if (Dex >= 12 && Int >= 13 && Cha >= 15) {
+			if ((Dex >= 12) && (Int >= 13) && (Cha >= 15)) {
 				IsBardAvailable = true;
 			}
 			else IsBardAvailable = false;

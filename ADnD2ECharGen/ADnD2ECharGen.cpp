@@ -16,13 +16,15 @@ int main() {
     std::cout << "CHA = " << Stats[5] << std::endl;*/
 
     Character Generated;
-    Generated.RollStats();
-    std::cout << "STR = " << Generated.Str << std::endl;
-    std::cout << "DEX = " << Generated.Dex << std::endl;
-    std::cout << "CON = " << Generated.Con << std::endl;
-    std::cout << "INT = " << Generated.Int << std::endl;
-    std::cout << "WIS = " << Generated.Wis << std::endl;
-    std::cout << "CHA = " << Generated.Cha << std::endl;
+    do {
+        Generated.RollStats();
+        std::cout << "STR = " << Generated.Str << std::endl;
+        std::cout << "DEX = " << Generated.Dex << std::endl;
+        std::cout << "CON = " << Generated.Con << std::endl;
+        std::cout << "INT = " << Generated.Int << std::endl;
+        std::cout << "WIS = " << Generated.Wis << std::endl;
+        std::cout << "CHA = " << Generated.Cha << std::endl;
+    } while ((Generated.Str < 9) && (Generated.Dex < 9) && (Generated.Int < 9) && (Generated.Wis < 9));
 
     Generated.CheckFighter();
     Generated.CheckPaladin();
@@ -164,7 +166,8 @@ int main() {
 
     Generated.ClassName = Generated.Input;
 
-
+    /* Code inserted to check variable assignment
+    std::cout << "Class chosen is " << Generated.ClassName << std::endl;*/
 
 
 
