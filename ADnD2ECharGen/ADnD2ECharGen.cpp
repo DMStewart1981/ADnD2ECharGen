@@ -169,13 +169,29 @@ int main() {
     /* Code inserted to check variable assignment
     std::cout << "Class chosen is " << Generated.ClassName << std::endl;*/
 
+    Generated.TypeSort();
 
+    //std::cout << Generated.CharacterType << std::endl;
 
+    if ((Generated.CharacterType == 1) && (Generated.Str == 18)) {
+        Generated.ExceptionalStrength = Generated.RollPercent();
+    }
 
+    Generated.SetSaves();
 
+    std::cout << "Save vs PPDM = " << Generated.SavePPDM << std::endl;
+    std::cout << "Save vs Rod/Staff/Wand = " << Generated.SaveRSW << std::endl;
+    std::cout << "Save vs Petrify/Polymorph = " << Generated.SavePetPoly << std::endl;
+    std::cout << "Save vs Breath Weapon = " << Generated.SaveBreath << std::endl;
+    std::cout << "Save vs Spell = " << Generated.SaveSpell << std::endl;
 
-
-
+    std::cout << "Attributes" << std::endl;
+    std::cout << "Str " << Generated.Str << " / " << Generated.ExceptionalStrength << std::endl;
+    std::cout << "Dex " << Generated.Dex << std::endl;
+    std::cout << "Con " << Generated.Con << std::endl;
+    std::cout << "Int " << Generated.Int << std::endl;
+    std::cout << "Wis " << Generated.Wis << std::endl;
+    std::cout << "Cha " << Generated.Cha << std::endl;
 
 
     return 0;

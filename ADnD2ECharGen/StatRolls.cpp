@@ -76,3 +76,5 @@ int RollVector() {
 
     return StatVector[0] + StatVector[1]+StatVector[2];
 }
+
+
