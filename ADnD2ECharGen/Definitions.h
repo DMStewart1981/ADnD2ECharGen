@@ -13,12 +13,12 @@ class Character
 			SaveRSW(0), SavePetPoly(0), SaveBreath(0), SaveSpell(0), ExceptionalStrength(0), IsFighterAvailable(false),
 			IsPaladinAvailable(false), IsRangerAvailable(false), IsMageAvailable(false), IsClericAvailable(false),
 			IsDruidAvailable(false), IsThiefAvailable(false), IsBardAvailable(false), IsInputValid(false), Input(), CharacterType(0),
-			ToHitAdj(0), DmgAdj(0), Carry(0), MaxPress(0), OpenDoor(0), BBLG(0),
-			InitiativeAdj(0), MissileAdj(0), ACAdj(0), 
-			HPAdj(0), SystemShock(0), Resurrection(0), PoisonSaveAdj(0),
-			NumberOfLanguages(0), MaxSpellLevel(0), ChanceToLearn(0), MaxSpellPerLevel(0),
-			MagicDefAdj(0), BonusSpells(0), SpellFail(0),
-			MaxHench(0), LeadBase(0), Reaction(0) {};
+			ToHitAdj(10), DmgAdj(10), Carry(0), MaxPress(0), OpenDoor(0), BBLG(0),
+			InitiativeAdj(10), MissileAdj(10), ACAdj(10), 
+			HPAdj(10), SystemShock(0), Resurrection(0), PoisonSaveAdj(10),
+			NumberOfLanguages(-1), MaxSpellLevel(-1), ChanceToLearn(-1), MaxSpellPerLevel(-1),
+			MagicDefAdj(10), BonusSpells(false), SpellFail(-1),
+			MaxHench(-1), LeadBase(-10), Reaction(-10) {};
 		std::string CharacterName;
 		int Str;
 		int Dex;
@@ -61,7 +61,7 @@ class Character
 		int MaxSpellPerLevel;
 		//Wisdom Characteristics
 		int MagicDefAdj;
-		int BonusSpells;
+		bool BonusSpells;
 		int SpellFail;
 		//Charisma Characteristics
 		int MaxHench;
@@ -572,6 +572,308 @@ class Character
 				SystemShock = 99;
 				Resurrection = 100;
 				PoisonSaveAdj = 0;
+			}
+
+		};
+
+		void IntelligenceAdj() {
+
+			if (Int == 1) {
+				NumberOfLanguages = 0;
+				MaxSpellLevel = 0;
+				ChanceToLearn = 0;
+				MaxSpellPerLevel = 0;
+			}
+
+			else if ((Int >= 2) && (Int <= 8)) {
+				NumberOfLanguages = 1;
+				MaxSpellLevel = 0;
+				ChanceToLearn = 0;
+				MaxSpellPerLevel = 0;
+			}
+
+			else if (Int == 9) {
+				NumberOfLanguages = 2;
+				MaxSpellLevel = 4;
+				ChanceToLearn = 35;
+				MaxSpellPerLevel = 6;
+			}
+
+			else if (Int == 10) {
+				NumberOfLanguages = 2;
+				MaxSpellLevel = 5;
+				ChanceToLearn = 40;
+				MaxSpellPerLevel = 7;
+			}
+
+			else if (Int == 11) {
+				NumberOfLanguages = 2;
+				MaxSpellLevel = 5;
+				ChanceToLearn = 45;
+				MaxSpellPerLevel = 7;
+			}
+
+			else if (Int == 12) {
+				NumberOfLanguages = 3;
+				MaxSpellLevel = 6;
+				ChanceToLearn = 50;
+				MaxSpellPerLevel = 7;
+			}
+
+			else if (Int == 13) {
+				NumberOfLanguages = 3;
+				MaxSpellLevel = 6;
+				ChanceToLearn = 55;
+				MaxSpellPerLevel = 9;
+			}
+
+			else if (Int == 14) {
+				NumberOfLanguages = 4;
+				MaxSpellLevel = 7;
+				ChanceToLearn = 60;
+				MaxSpellPerLevel = 9;
+			}
+
+			else if (Int == 15) {
+				NumberOfLanguages = 4;
+				MaxSpellLevel = 7;
+				ChanceToLearn = 65;
+				MaxSpellPerLevel = 11;
+			}
+
+			else if (Int == 16) {
+				NumberOfLanguages = 5;
+				MaxSpellLevel = 8;
+				ChanceToLearn = 70;
+				MaxSpellPerLevel = 11;
+			}
+
+			else if (Int == 17) {
+				NumberOfLanguages = 6;
+				MaxSpellLevel = 8;
+				ChanceToLearn = 75;
+				MaxSpellPerLevel = 14;
+			}
+
+			else if (Int == 18) {
+				NumberOfLanguages = 7;
+				MaxSpellLevel = 9;
+				ChanceToLearn = 95;
+				MaxSpellPerLevel = 18;
+			}
+
+		};
+
+		void WisdomAdj() {
+
+			if (Wis == 1) {
+				MagicDefAdj = -6;
+				BonusSpells = false;
+				SpellFail = 80;
+			}
+
+			else if (Wis == 2) {
+				MagicDefAdj = -4;
+				BonusSpells = false;
+				SpellFail = 60;
+			}
+
+			else if (Wis == 3) {
+				MagicDefAdj = -3;
+				BonusSpells = false;
+				SpellFail = 50;
+			}
+
+			else if (Wis == 4) {
+				MagicDefAdj = -2;
+				BonusSpells = false;
+				SpellFail = 45;
+			}
+
+			else if (Wis == 5) {
+				MagicDefAdj = -1;
+				BonusSpells = false;
+				SpellFail = 40;
+			}
+
+			else if (Wis == 6) {
+				MagicDefAdj = -1;
+				BonusSpells = false;
+				SpellFail = 35;
+			}
+
+			else if (Wis == 7) {
+				MagicDefAdj = -1;
+				BonusSpells = false;
+				SpellFail = 30;
+			}
+
+			else if (Wis == 8) {
+				MagicDefAdj = 0;
+				BonusSpells = false;
+				SpellFail = 25;
+			}
+
+			else if (Wis == 9) {
+				MagicDefAdj = 0;
+				BonusSpells = false;
+				SpellFail = 20;
+			}
+
+			else if (Wis == 10) {
+				MagicDefAdj = 0;
+				BonusSpells = false;
+				SpellFail = 15;
+			}
+
+			else if (Wis == 11) {
+				MagicDefAdj = 0;
+				BonusSpells = false;
+				SpellFail = 10;
+			}
+
+			else if (Wis == 12) {
+				MagicDefAdj = 0;
+				BonusSpells = false;
+				SpellFail = 5;
+			}
+
+			else if (Wis == 13) {
+				MagicDefAdj = 0;
+				BonusSpells = true;
+				SpellFail = 0;
+			}
+
+			else if (Wis == 14) {
+				MagicDefAdj = 0;
+				BonusSpells = true;
+				SpellFail = 0;
+			}
+
+			else if (Wis == 15) {
+				MagicDefAdj = 1;
+				BonusSpells = true;
+				SpellFail = 0;
+
+			}
+
+			else if (Wis == 16) {
+				MagicDefAdj = 2;
+				BonusSpells = true;
+				SpellFail = 0;
+			}
+			
+			else if (Wis == 17) {
+				MagicDefAdj = 3;
+				BonusSpells = true;
+				SpellFail = 0;
+			}
+
+			else if (Wis == 18) {
+				MagicDefAdj = 4;
+				BonusSpells = true;
+				SpellFail = 0;
+			}
+
+		};
+
+		void CharismaAdj() {
+
+
+			if (Cha == 1) {
+				MaxHench = 0;
+				LeadBase = -8;
+				Reaction = -7;
+			}
+
+			else if (Cha == 2) {
+				MaxHench = 1;
+				LeadBase = -7;
+				Reaction = -6;
+			}
+
+			else if (Cha == 3) {
+				MaxHench = 1;
+				LeadBase = -6;
+				Reaction = -5;
+			}
+
+			else if (Cha == 4) {
+				MaxHench = 1;
+				LeadBase = -5;
+				Reaction = -4;
+			}
+
+			else if (Cha == 5) {
+				MaxHench = 2;
+				LeadBase = -4;
+				Reaction = -3;
+			}
+
+			else if (Cha == 6) {
+				MaxHench = 2;
+				LeadBase = -3;
+				Reaction = -2;
+			}
+
+			else if (Cha == 7) {
+				MaxHench = 3;
+				LeadBase = -2;
+				Reaction = -1;
+			}
+
+			else if (Cha == 8) {
+				MaxHench = 3;
+				LeadBase = -1;
+				Reaction = 0;
+			}
+
+			else if ((Cha >= 9) && (Cha <= 11)) {
+				MaxHench = 4;
+				LeadBase = 0;
+				Reaction = 0;
+			}
+
+			else if (Cha == 12) {
+				MaxHench = 5;
+				LeadBase = 0;
+				Reaction = 1;
+			}
+
+			else if (Cha == 13) {
+				MaxHench = 5;
+				LeadBase = 0;
+				Reaction = 1;
+			}
+
+			else if (Cha == 14) {
+				MaxHench = 6;
+				LeadBase = 1;
+				Reaction = 2;
+			}
+
+			else if (Cha == 15) {
+				MaxHench = 7;
+				LeadBase = 3;
+				Reaction = 3;
+			}
+
+			else if (Cha == 16) {
+				MaxHench = 8;
+				LeadBase = 4;
+				Reaction = 5;
+			}
+
+			else if (Cha == 17) {
+				MaxHench = 10;
+				LeadBase = 6;
+				Reaction = 6;
+			}
+
+			else if (Cha == 18) {
+				MaxHench = 15;
+				LeadBase = 8;
+				Reaction = 7;
 			}
 
 		};

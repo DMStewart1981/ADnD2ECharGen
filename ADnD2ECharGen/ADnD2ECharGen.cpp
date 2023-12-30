@@ -178,6 +178,12 @@ int main() {
     }
 
     Generated.SetSaves();
+    Generated.StrengthAdjustments();
+    Generated.DexAdjustments();
+    Generated.ConstitutionAdjustments();
+    Generated.IntelligenceAdj();
+    Generated.WisdomAdj();
+    Generated.CharismaAdj();
 
     std::cout << "Save vs PPDM = " << Generated.SavePPDM << std::endl;
     std::cout << "Save vs Rod/Staff/Wand = " << Generated.SaveRSW << std::endl;
@@ -192,6 +198,15 @@ int main() {
     std::cout << "Int " << Generated.Int << std::endl;
     std::cout << "Wis " << Generated.Wis << std::endl;
     std::cout << "Cha " << Generated.Cha << std::endl;
+
+    /*Code inserted for testing
+
+    std::cout << "Bend Bars/Lift Gates % = " << Generated.BBLG << std::endl;
+    std::cout << "AC Adjustment = " << Generated.ACAdj << std::endl;
+    std::cout << "System Shock % = " << Generated.SystemShock << std::endl;
+    std::cout << "Number of Languages Known = " << Generated.NumberOfLanguages << std::endl;
+    std::cout << "Divine Spell Failure % = " << Generated.SpellFail << std::endl;
+    std::cout << "Max Henchmen = " << Generated.MaxHench << std::endl; */
 
 
     return 0;
