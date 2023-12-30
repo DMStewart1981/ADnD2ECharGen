@@ -9,3 +9,5 @@ Second Commit - Checks attributes for available character classes.
 27 Dec 23 - Cleanup of a couple of places that could cause the program to hang.
 
 29 Dec 23 - Addition of Saving Throws and Physical Attribute Adjustments
+
+30 Dec 23 - Added Mental Attribute adjustments and testing code.
