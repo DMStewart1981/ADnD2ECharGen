@@ -1,0 +1,10 @@
+Name: Bill Class: Paladin
+STR 13/0 Damage Adjustment 0 Carry 45 Max Press 140 Open Doors 7 Bend Bars/Lift Gates 4
+DEX 15 Initiative 0
+CON 10 HP Adjustment 0 System Shock % 70 Resurrection Survival % 75
+INT 9 Languages 2 Max Spell Level 4 Chance To Learn (Arcane) 35 Max Spells per Level (Arcane) 6
+WIS 15 Magic Defense Adjustment 1 Bonus Spells? 1 Spell Failure % (Divine) 0
+CHA 17 Max Henchmen 10 Leadership 6 Reaction Adjustment 6
+THAC0 - Melee 20 THAC0 - Ranged 20
+Base AC 9 HP 10
+Save vs PPDM 16 Save vs Rod/Staff/Wand 18 Save vs Petrification/Polymorph 17 Save vs Breath Weapon 20 Save vs. Spell 18

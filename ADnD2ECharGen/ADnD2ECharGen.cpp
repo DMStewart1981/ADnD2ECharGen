@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include "Definitions.h"
 
 int main() {
@@ -25,6 +26,9 @@ int main() {
         std::cout << "WIS = " << Generated.Wis << std::endl;
         std::cout << "CHA = " << Generated.Cha << std::endl;
     } while ((Generated.Str < 9) && (Generated.Dex < 9) && (Generated.Int < 9) && (Generated.Wis < 9));
+
+    //Code for debugging
+    //Generated.Str = 18;
 
     Generated.CheckFighter();
     Generated.CheckPaladin();
@@ -173,6 +177,8 @@ int main() {
 
     //std::cout << Generated.CharacterType << std::endl;
 
+
+
     if ((Generated.CharacterType == 1) && (Generated.Str == 18)) {
         Generated.ExceptionalStrength = Generated.RollPercent();
     }
@@ -185,11 +191,7 @@ int main() {
     Generated.WisdomAdj();
     Generated.CharismaAdj();
 
-    std::cout << "Save vs PPDM = " << Generated.SavePPDM << std::endl;
-    std::cout << "Save vs Rod/Staff/Wand = " << Generated.SaveRSW << std::endl;
-    std::cout << "Save vs Petrify/Polymorph = " << Generated.SavePetPoly << std::endl;
-    std::cout << "Save vs Breath Weapon = " << Generated.SaveBreath << std::endl;
-    std::cout << "Save vs Spell = " << Generated.SaveSpell << std::endl;
+
 
     std::cout << "Attributes" << std::endl;
     std::cout << "Str " << Generated.Str << " / " << Generated.ExceptionalStrength << std::endl;
@@ -208,6 +210,39 @@ int main() {
     std::cout << "Divine Spell Failure % = " << Generated.SpellFail << std::endl;
     std::cout << "Max Henchmen = " << Generated.MaxHench << std::endl; */
 
+    Generated.Adjustments();
+
+    /* Code inserted for testing
+    std::cout << "Base AC = " << Generated.AC << std::endl;
+    std::cout << "HP = " << Generated.HP << std::endl;
+    std::cout << "THAC0 (Melee) = " << Generated.THAC0M << std::endl;
+    std::cout << "THAC0 (Missile) = " << Generated.THAC0R << std::endl;
+    std::cout << "Save vs PPDM = " << Generated.SavePPDM << std::endl;
+    std::cout << "Save vs Rod/Staff/Wand = " << Generated.SaveRSW << std::endl;
+    std::cout << "Save vs Petrify/Polymorph = " << Generated.SavePetPoly << std::endl;
+    std::cout << "Save vs Breath Weapon = " << Generated.SaveBreath << std::endl;
+    std::cout << "Save vs Spell = " << Generated.SaveSpell << std::endl;
+    */
+
+    std::cout << "Character Name:" << std::endl;
+    std::cin >> Generated.CharacterName;
+
+    // std::cout << Generated.CharacterName << std::endl; Testing code
+
+    std::ofstream output;
+    output.open("Generated.txt");
+    output << "Name: " << Generated.CharacterName << " Class: " << Generated.ClassName << "\n";
+    output << "STR " << Generated.Str << "/" <<  Generated.ExceptionalStrength << " Damage Adjustment " << Generated.DmgAdj << " Carry " << Generated.Carry << " Max Press " << Generated.MaxPress << " Open Doors " << Generated.OpenDoor << " Bend Bars/Lift Gates " << Generated.BBLG << "\n";
+    output << "DEX " << Generated.Dex << " Initiative " << Generated.InitiativeAdj << "\n";
+    output << "CON " << Generated.Con << " HP Adjustment " << Generated.HPAdj << " System Shock % " << Generated.SystemShock << " Resurrection Survival % " << Generated.Resurrection << "\n";
+    output << "INT " << Generated.Int << " Languages " << Generated.NumberOfLanguages << " Max Spell Level " << Generated.MaxSpellLevel << " Chance To Learn (Arcane) " << Generated.ChanceToLearn << " Max Spells per Level (Arcane) " << Generated.MaxSpellPerLevel << "\n";
+    output << "WIS " << Generated.Wis << " Magic Defense Adjustment " << Generated.MagicDefAdj << " Bonus Spells? " << Generated.BonusSpells << " Spell Failure % (Divine) " << Generated.SpellFail << "\n";
+    output << "CHA " << Generated.Cha << " Max Henchmen " << Generated.MaxHench << " Leadership " << Generated.LeadBase << " Reaction Adjustment " << Generated.Reaction << "\n";
+    output << "THAC0 - Melee " << Generated.THAC0M << " THAC0 - Ranged " << Generated.THAC0R << "\n";
+    output << "Base AC " << Generated.AC << " HP " << Generated.HP << "\n";
+    output << "Save vs PPDM " << Generated.SavePPDM << " Save vs Rod/Staff/Wand " << Generated.SaveRSW << " Save vs Petrification/Polymorph " << Generated.SavePetPoly << " Save vs Breath Weapon " << Generated.SaveBreath << " Save vs. Spell " << Generated.SaveSpell << "\n";
+    output.close();
+    
 
     return 0;
 }

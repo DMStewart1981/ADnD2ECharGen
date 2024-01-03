@@ -9,12 +9,12 @@
 class Character
 	{
 	public:
-		Character() :CharacterName(), Str(0), Dex(0), Con(0), Int(0), Wis(0), Cha(0), ClassName(), THAC0(20), SavePPDM(0),
-			SaveRSW(0), SavePetPoly(0), SaveBreath(0), SaveSpell(0), ExceptionalStrength(0), IsFighterAvailable(false),
+		Character() :CharacterName(), HP(0), AC(10), Str(0), Dex(0), Con(0), Int(0), Wis(0), Cha(0), ClassName(), THAC0M(20), THAC0R(20),
+			SavePPDM(0), SaveRSW(0), SavePetPoly(0), SaveBreath(0), SaveSpell(0), ExceptionalStrength(0), IsFighterAvailable(false),
 			IsPaladinAvailable(false), IsRangerAvailable(false), IsMageAvailable(false), IsClericAvailable(false),
 			IsDruidAvailable(false), IsThiefAvailable(false), IsBardAvailable(false), IsInputValid(false), Input(), CharacterType(0),
 			ToHitAdj(10), DmgAdj(10), Carry(0), MaxPress(0), OpenDoor(0), BBLG(0),
-			InitiativeAdj(10), MissileAdj(10), ACAdj(10), 
+			InitiativeAdj(0), MissileAdj(0), ACAdj(0), 
 			HPAdj(10), SystemShock(0), Resurrection(0), PoisonSaveAdj(10),
 			NumberOfLanguages(-1), MaxSpellLevel(-1), ChanceToLearn(-1), MaxSpellPerLevel(-1),
 			MagicDefAdj(10), BonusSpells(false), SpellFail(-1),
@@ -28,8 +28,9 @@ class Character
 		int Cha;
 		// Character Class
 		std::string ClassName;
-		// To Hit Armor Class 0
-		int THAC0;
+		// To Hit Armor Class 0 (Melee/Ranged)
+		int THAC0M;
+		int THAC0R;
 		//Saving Throws
 		int SavePPDM; //Paralyze, Poison, Death Magic
 		int SaveRSW; //Rod, Staff, Wand
@@ -37,6 +38,8 @@ class Character
 		int SaveBreath;
 		int SaveSpell;
 		int ExceptionalStrength;
+		int HP;
+		int AC;
 
 		//Strength Characteristics
 		int ToHitAdj;
@@ -228,7 +231,7 @@ class Character
 				BBLG = 0;
 			}
 
-			else if ((Str == 8) || (Str = 9)) {
+			else if ((Str == 8) || (Str == 9)) {
 				ToHitAdj = 0;
 				DmgAdj = 0;
 				Carry = 35;
@@ -237,7 +240,7 @@ class Character
 				BBLG = 1;
 			}
 
-			else if ((Str == 10) || (Str = 11)) {
+			else if ((Str == 10) || (Str == 11)) {
 				ToHitAdj = 0;
 				DmgAdj = 0;
 				Carry = 40;
@@ -344,6 +347,7 @@ class Character
 				SavePetPoly = 17;
 				SaveBreath = 20;
 				SaveSpell = 19;
+				HP = 10;
 			}
 
 			else if (CharacterType == 2) {
@@ -352,6 +356,7 @@ class Character
 				SavePetPoly = 13;
 				SaveBreath = 15;
 				SaveSpell = 12;
+				HP = 4;
 			}
 
 			else if (CharacterType == 3) {
@@ -360,6 +365,7 @@ class Character
 				SavePetPoly = 13;
 				SaveBreath = 16;
 				SaveSpell = 15;
+				HP = 8;
 			}
 
 			else if (CharacterType == 4) {
@@ -368,6 +374,7 @@ class Character
 				SavePetPoly = 12;
 				SaveBreath = 16;
 				SaveSpell = 15;
+				HP = 6;
 			}
 		};
 
@@ -875,6 +882,17 @@ class Character
 				LeadBase = 8;
 				Reaction = 7;
 			}
+
+		};
+
+		void Adjustments() {
+
+			THAC0M -= ToHitAdj;
+			THAC0R -= MissileAdj;
+			AC += ACAdj;
+			SavePPDM += PoisonSaveAdj;
+			HP += HPAdj;
+			SaveSpell -= MagicDefAdj;
 
 		};
 
