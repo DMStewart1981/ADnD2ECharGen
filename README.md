@@ -11,3 +11,5 @@ Second Commit - Checks attributes for available character classes.
 29 Dec 23 - Addition of Saving Throws and Physical Attribute Adjustments
 
 30 Dec 23 - Added Mental Attribute adjustments and testing code.
+
+2 Jan 24 - Prototype complete ready for testing
